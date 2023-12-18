@@ -1,0 +1,26 @@
+.nav {
+  margin: 30px 0;
+}
+
+.list {
+  display: flex;
+}
+.link {
+  margin-right: 20px;
+  padding: 15px;
+  border: 1px solid #000;
+  border-radius: 10px;
+  font-size: 20px;
+  text-decoration: none;
+  color: #000;
+}
+.link:active {
+  background-color: #eee;
+  color: #999;
+}
+
+.selected {
+  color: #fff;
+  background-color: #000;
+  font-family: 700;
+}

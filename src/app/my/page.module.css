@@ -1,0 +1,57 @@
+.content {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.caution {
+  margin-bottom: 10px;
+  color: red;
+  font-size: 16px;
+}
+
+.button {
+  width: 150px;
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: black;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 20px;
+}
+
+.button:active {
+  background-color: #e9e9e9;
+  color: #000;
+}
+
+.remove_btn {
+  margin-bottom: 5px;
+  padding: 10px;
+  background-color: blue;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.remove_btn:active {
+  background-color: #e9e9e9;
+  color: black;
+  border: 1px solid black;
+}
+
+.remove_btn:disabled {
+  cursor: not-allowed;
+}
+
+.button.end {
+  background-color: #555;
+  border: 1px solid transparent;
+  cursor: not-allowed;
+}
+
+.button.end:active {
+  background-color: #777;
+  color: #fff;
+}

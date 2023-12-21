@@ -8,19 +8,20 @@ interface TimeData {
 }
 export default function OrderStartBtn() {
   const { setDisableOrder } = useContext(ModalContext);
-  const MINS = 10;
-  const SECS = 60;
+  const MINS_PER_COUNT = 1;
+  const SECS_PER_COUNT = 60;
+  const localStorage = window?.localStorage;
   const [timeData, setTimeData] = useState<TimeData>({
     startTime: null,
     endTime: null,
   });
   const [countdown, setCountdown] = useState(false);
-  const [minuets, setMinuets] = useState(MINS * SECS * 1000);
+  const [minuets, setMinuets] = useState(MINS_PER_COUNT * SECS_PER_COUNT * 1000);
 
   // 스토리지에서 시작시간, 마감시간, 카운트를 가져와서 state로 세팅
   useEffect(() => {
-    const storageStartTime = window?.localStorage.getItem('startTime');
-    const storageEndTime = window?.localStorage.getItem('endTime');
+    const storageStartTime = localStorage.getItem('startTime');
+    const storageEndTime = localStorage.getItem('endTime');
     if (storageStartTime && storageEndTime) {
       const [startH, startM] = storageStartTime.split(':');
       const [endH, endM] = storageEndTime.split(':');
@@ -31,7 +32,7 @@ export default function OrderStartBtn() {
         return newTimeData;
       });
     }
-    const storageCountTime = window?.localStorage.getItem('count');
+    const storageCountTime = localStorage.getItem('count');
     if (storageCountTime) {
       setMinuets(JSON.parse(storageCountTime) * 1);
       setCountdown(true);
@@ -43,15 +44,15 @@ export default function OrderStartBtn() {
     const countTime = setTimeout(() => {
       if (countdown) {
         setMinuets((prev) => prev - 1000);
-        window?.localStorage.setItem('count', minuets.toString());
+        localStorage.setItem('count', minuets.toString());
       }
     }, 1000);
     if (minuets <= 0) {
       clearTimeout(countTime);
       setDisableOrder();
-      window?.localStorage.removeItem('count');
-      window?.localStorage.removeItem('startTime');
-      window?.localStorage.removeItem('endTime');
+      localStorage.removeItem('count');
+      localStorage.removeItem('startTime');
+      localStorage.removeItem('endTime');
       setOrderStatus(false); // 서버에 주문 가능 false로 set
     }
     return () => {
@@ -63,7 +64,7 @@ export default function OrderStartBtn() {
   const handleCountdown = () => {
     let { startTime, endTime } = timeData;
     startTime = dayjs(new Date());
-    endTime = startTime.add(MINS, 'minute');
+    endTime = startTime.add(MINS_PER_COUNT, 'minute');
     if (!localStorage.getItem('startTime') && !localStorage.getItem('endTime')) {
       // 저장된 시간 없을 때만 set
       localStorage.setItem('startTime', startTime.format('HH:mm'));
@@ -78,8 +79,9 @@ export default function OrderStartBtn() {
     setCountdown(true);
   };
 
+  // 보여지는 시간 텍스트에 대한 설정 : 1분보다 크면 분단위, 작으면 초단위
   const makeShowText = (restTime: number) => {
-    return restTime > 6000 ? Math.floor(restTime / (60 * 1000)) + '분' : restTime / 1000 + '초';
+    return restTime > 60000 ? Math.floor(restTime / (60 * 1000)) + '분' : restTime / 1000 + '초';
   };
 
   return countdown ? (
@@ -90,7 +92,7 @@ export default function OrderStartBtn() {
       <p className='time_data'>
         마감 시간 : <span>{timeData.endTime?.format('HH:mm')}</span>
       </p>
-      <p className={'ordering' + `${minuets < 60000 ? ' last_min' : ''}`}>{`남은 시간 : ${makeShowText(minuets)}`}</p>
+      <p className={`ordering${minuets < 60000 ? ' last_min' : ''}`}>{`남은 시간 : ${makeShowText(minuets)}`}</p>
     </div>
   ) : (
     <button className={'order_btn'} onClick={handleCountdown}>

@@ -6,7 +6,7 @@ import axios from 'axios';
 import OrderModeList from '@/components/OrderModeList';
 import DeliveryModeList from '@/components/DeliveryModeList';
 import OrderModal from '@/components/OrderModal';
-import { ModalContext } from '@/components/ModalContext';
+import { ModalContext } from '@/types/contextType';
 
 export type OrderDataType = [string, [string[] | [], string[] | []]][];
 

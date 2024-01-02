@@ -1,21 +1,17 @@
 'use client';
 
-import { CategoryType } from '@/types/beverageType';
+import { CategoryType } from '@/types/utilType';
 
-export default function SelectGroup({ category }: SelectGroupProps) {
-  const [categoryName, categoryItems] = Object.entries(category)[0];
-  if (!category || Object.keys(category).length === 0) {
+export default function SelectGroup({ category }: { category: CategoryType }) {
+  const { drinkType, drink } = category;
+  if (!category || drink.length === 0) {
     return null;
   }
   return (
-    <optgroup label={categoryName}>
-      {categoryItems.map((item) => (
+    <optgroup label={drinkType}>
+      {drink.map((item) => (
         <option key={item.name}>{item.name}</option>
       ))}
     </optgroup>
   );
-}
-
-interface SelectGroupProps {
-  category: CategoryType;
 }

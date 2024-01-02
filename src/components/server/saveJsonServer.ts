@@ -1,10 +1,5 @@
 import axios from 'axios';
-
-interface OrderType {
-  name: string;
-  bever: string;
-  type: string;
-}
+import { OrderType } from '@/types/utilType';
 
 const saveJsonServer = async (order: OrderType) => {
   const { name, bever, type } = order; // { 'wh bong', '아메리카노', '아이스' }

@@ -3,17 +3,14 @@
 import { useContext, useEffect, useState } from 'react';
 import dayjs, { Dayjs } from 'dayjs';
 import styles from './page.module.css';
-import { ModalContext } from '@/components/ModalContext';
+import { ModalContext } from '@/types/contextType';
 import OrderModal from '@/components/OrderModal';
+import { OrderType } from '@/types/utilType';
+import classNames from 'classnames';
 
-interface MyOrderType {
-  name: string;
-  finalBever: string;
-  beverType: string;
-}
 export default function MyOrder() {
   const { show, openModal, orderableStatus } = useContext(ModalContext);
-  const [order, setOrder] = useState<MyOrderType | null>(null);
+  const [order, setOrder] = useState<OrderType | null>(null);
   const [date, setDate] = useState<Dayjs | null>(null);
 
   const removeLastData = () => {
@@ -31,15 +28,15 @@ export default function MyOrder() {
     if (storageOrder) setOrder(JSON.parse(storageOrder));
     if (storageDate) setDate(dayjs(JSON.parse(storageDate)));
   }, [show]);
-  // todo 이 페이지에서 모달로 주문을 할 수 있게 되었으므로 리렌더 시켜 화면을 다시 그리는 것에 대해 고민해야함
+
   return (
     <div className='container'>
       <h3 className='title'>주문 내역</h3>
       {order ? (
         <>
           <p className={styles.content}>이름 : {order.name}</p>
-          <p className={styles.content}>음료 : {order.finalBever}</p>
-          <p className={styles.content}>음료 온도 : {order.beverType}</p>
+          <p className={styles.content}>음료 : {order.bever}</p>
+          <p className={styles.content}>음료 온도 : {order.type}</p>
           <p className={styles.content}>
             주문 날짜 : <b>{date?.format('YYYY-MM-DD')}</b>
           </p>
@@ -53,7 +50,7 @@ export default function MyOrder() {
           {order ? '주문 다시 하기' : '주문 하기'}
         </button>
       ) : (
-        <button className={`${styles.button} ${styles.end}`} disabled={true}>
+        <button className={classNames(styles.button, styles.end)} disabled={true}>
           주문 마감
         </button>
       )}

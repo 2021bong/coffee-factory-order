@@ -1,6 +1,7 @@
 'use client';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import classNames from 'classnames';
 import styles from '@/components/styles/navbar.module.css';
 
 export default function NavBar() {
@@ -14,7 +15,11 @@ export default function NavBar() {
       <ul className={styles.list}>
         {navMenu.map((menu) => {
           return (
-            <Link href={menu.url} key={menu.id} className={`${styles.link} ${paths === menu.url && styles.selected}`}>
+            <Link
+              href={menu.url}
+              key={menu.id}
+              className={classNames(styles.link, { [styles.selected]: paths === menu.url })}
+              aria-current={paths === menu.url ? 'page' : undefined}>
               <li>{menu.title}</li>
             </Link>
           );

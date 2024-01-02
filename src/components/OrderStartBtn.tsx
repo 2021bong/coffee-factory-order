@@ -1,17 +1,20 @@
 import { useEffect, useState, useContext } from 'react';
-import { ModalContext } from './ModalContext';
-import { setOrderStatus } from './saveOrderStatus';
+import { ModalContext } from '../types/contextType';
+import { setOrderStatus } from './server/saveOrderStatus';
 import dayjs, { Dayjs } from 'dayjs';
-interface TimeData {
+import classNames from 'classnames';
+
+export interface TimeType {
   startTime: Dayjs | null;
   endTime: Dayjs | null;
 }
+
 export default function OrderStartBtn() {
   const { setDisableOrder } = useContext(ModalContext);
-  const MINS_PER_COUNT = 1;
+  const MINS_PER_COUNT = 2;
   const SECS_PER_COUNT = 60;
   const localStorage = window?.localStorage;
-  const [timeData, setTimeData] = useState<TimeData>({
+  const [timeData, setTimeData] = useState<TimeType>({
     startTime: null,
     endTime: null,
   });
@@ -92,7 +95,7 @@ export default function OrderStartBtn() {
       <p className='time_data'>
         마감 시간 : <span>{timeData.endTime?.format('HH:mm')}</span>
       </p>
-      <p className={`ordering${minuets < 60000 ? ' last_min' : ''}`}>{`남은 시간 : ${makeShowText(minuets)}`}</p>
+      <p className={classNames('ordering', { last_min: minuets < 60000 })}>{`남은 시간 : ${makeShowText(minuets)}`}</p>
     </div>
   ) : (
     <button className={'order_btn'} onClick={handleCountdown}>

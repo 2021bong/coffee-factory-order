@@ -6,9 +6,9 @@ import './globals.css';
 import './reset.css';
 import nextSvg from '../../public/next.svg';
 import NavBar from '@/components/NavBar';
-import { ModalContext } from '@/components/ModalContext';
+import { ModalContext } from '@/types/contextType';
 import OrderStartBtn from '@/components/OrderStartBtn';
-import { getOrderStatus } from '@/components/saveOrderStatus';
+import { getOrderStatus } from '@/components/server/saveOrderStatus';
 
 // export const metadata: Metadata = {
 //   title: '커공주',

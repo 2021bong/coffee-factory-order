@@ -56,7 +56,7 @@ export default function OrderStartBtn() {
       localStorage.removeItem('count');
       localStorage.removeItem('startTime');
       localStorage.removeItem('endTime');
-      setOrderStatus(false); // 서버에 주문 가능 false로 set
+      setOrderStatus(); // 서버에 주문 가능 false로 set
     }
     return () => {
       clearTimeout(countTime);

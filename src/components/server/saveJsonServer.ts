@@ -1,10 +1,11 @@
 import axios from 'axios';
 import { OrderType } from '@/types/utilType';
+import { ORDER_URL } from '../url';
 
 const saveJsonServer = async (order: OrderType) => {
   const { name, bever, type } = order; // { 'wh bong', '아메리카노', '아이스' }
   // 저장된 전체 주문 내역 데이터 불러오기
-  const originalData = await axios.get(process.env.NEXT_PUBLIC_JSON_SERVER_IP as string).then((data) => data.data);
+  const originalData = await axios.get(ORDER_URL).then((data) => data.data);
   const hadBever = !!originalData[bever];
   const newData = { ...originalData };
   const orderKeys = Object.keys(newData); // orderKeys = [오늘의 커피, 아메리카노, ...]
@@ -30,7 +31,7 @@ const saveJsonServer = async (order: OrderType) => {
     hot.push(name);
   }
   // 서버에 저장
-  axios.put(process.env.NEXT_PUBLIC_JSON_SERVER_IP as string, newData);
+  axios.put(ORDER_URL, newData);
 };
 
 export default saveJsonServer;

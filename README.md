@@ -1,6 +1,6 @@
-# coffee factory order
+# 커피 공장 주문 받습니다
 
-점심 시간 커피 주문을 편하게 하기 위한 프로젝트
+점심 시간 커피 주문을 편하게 하기 위한 커피 주문 취합 프로젝트
 
 _불편했던 점_
 
@@ -34,3 +34,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 2. TIME LIMIT
 3. MODE CHANGE
 4. SHOW LAST ORDER
+
+## Deployment
+
+[커피 공장 주문 받습니다](https://coffee-factory-order.vercel.app/)

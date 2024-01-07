@@ -7,6 +7,7 @@ import OrderModeList from '@/components/OrderModeList';
 import DeliveryModeList from '@/components/DeliveryModeList';
 import OrderModal from '@/components/OrderModal';
 import { ModalContext } from '@/types/contextType';
+import { ALL_URL } from '@/components/url';
 
 export type OrderDataType = [string, [string[] | [], string[] | []]][];
 
@@ -18,9 +19,9 @@ export default function Home() {
 
   useEffect(() => {
     axios
-      .get(process.env.NEXT_PUBLIC_JSON_SERVER_IP as string)
+      .get(ALL_URL)
       .then((data) => {
-        setOrderData(Object.entries(data.data));
+        // setOrderData(Object.entries(data.data));
       })
       .catch((err) => {
         console.error('error : ', err);
@@ -41,7 +42,7 @@ export default function Home() {
       <button className={styles.mode_btn} onClick={(e) => setMode((prev) => !prev)}>
         {mode ? '배달 모드' : '결제 모드'}
       </button>
-      <OrderModal />
+      {show && <OrderModal />}
     </div>
   );
 }

@@ -6,7 +6,7 @@ import beverageMenu from '@/components/beverageMenu';
 import names from '@/components/names';
 import SelectGroup from '@/components/SelectGroup';
 import styles from '@/components/styles/orderModal.module.css';
-import saveJsonServer from '@/components/server/saveJsonServer';
+import saveDataServer from '@/components/server/saveDataServer';
 import { ModalContext } from '../types/contextType';
 import { useRouter } from 'next/navigation';
 import { CategoryType } from '@/types/utilType';
@@ -17,7 +17,7 @@ export default function OrderModal() {
   const [name, setName] = useState(names[0]);
   const [beverages, setBeverages] = useState<CategoryType[]>(beverageMenu);
   const [etcBever, setEtcBever] = useState('');
-  const [beverType, setBeverType] = useState('아이스');
+  const [beverType, setBeverType] = useState(false);
   const selectedBever = beverages
     .map((bever) => bever.drink)
     .flat()
@@ -39,10 +39,6 @@ export default function OrderModal() {
     setBeverages(updateBeverages);
   };
 
-  const handleBeverType = (e: ChangeEvent<HTMLInputElement>) => {
-    setBeverType(e.target.value);
-  };
-
   const finalBever = selectedBever !== '기타' ? selectedBever : etcBever;
   const itsOkay = finalBever === '괜찮습니다';
 
@@ -52,7 +48,7 @@ export default function OrderModal() {
       alert('기타 음료 이름을 적어주세요!');
       return;
     }
-    if (confirm(`${name}님, ${finalBever}${itsOkay ? '' : '_' + beverType} 맞으신가요?`)) {
+    if (confirm(`${name}님, ${finalBever}${itsOkay ? '' : '_' + (beverType ? '핫' : '아이스')} 맞으신가요?`)) {
       saveOrder();
     }
   };
@@ -65,8 +61,7 @@ export default function OrderModal() {
       localStorage.setItem('order', JSON.stringify({ name, bever: finalBever, type: beverType }));
     }
     localStorage.setItem('date', JSON.stringify(new Date()));
-    await saveJsonServer({ name, bever: finalBever, type: beverType });
-    alert('주문 완료 되었습니다.');
+    await saveDataServer({ name, bever: finalBever, type: beverType });
     router.push('/');
     closeModal();
   };
@@ -116,12 +111,12 @@ export default function OrderModal() {
                 id='ice'
                 name='temperature'
                 defaultChecked
-                onChange={handleBeverType}
+                onChange={() => setBeverType(false)}
               />
               <label htmlFor='ice' aria-label='ice'>
                 아이스
               </label>
-              <input type='radio' value='따뜻하게' id='hot' name='temperature' onChange={handleBeverType} />
+              <input type='radio' value='따뜻하게' id='hot' name='temperature' onChange={() => setBeverType(true)} />
               <label htmlFor='hot' aria-label='hot'>
                 따뜻하게
               </label>

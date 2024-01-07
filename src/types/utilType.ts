@@ -3,5 +3,8 @@ export type CategoryType = { drinkType: string; drink: { name: string; selected:
 export interface OrderType {
   name: string;
   bever: string;
-  type: string;
+  type: boolean;
 }
+
+// 아이스 : false
+// 핫 : true

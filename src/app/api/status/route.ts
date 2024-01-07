@@ -16,7 +16,7 @@ export async function GET(request: Request) {
     return NextResponse.json({ error }, { status: 500 });
   }
   const status = (await sql`SELECT * FROM CoffeeOrder_status WHERE time = ${today};`).rows[0].status;
-  console.log('GET res : ', { status });
+  console.log('/status GET res : ', { status });
   return NextResponse.json({ status }, { status: 200 });
 }
 

@@ -62,7 +62,6 @@ export default function OrderModal() {
     }
     localStorage.setItem('date', JSON.stringify(new Date()));
     await saveDataServer({ name, bever: finalBever, type: beverType });
-    router.push('/');
     closeModal();
   };
   return (

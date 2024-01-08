@@ -5,10 +5,11 @@ import dayjs from 'dayjs';
 export async function GET(request: Request) {
   const today = dayjs(new Date()).format('YYYY-MM-DD');
   try {
-    const statusRows = await sql`SELECT * FROM CoffeeOrder_status WHERE time = ${today};`;
-    if (!statusRows.rows.length) {
+    const { rows } = await sql`SELECT * FROM CoffeeOrder_status WHERE time = ${today};`;
+    if (!rows.length) {
+      await sql`DELETE FROM CoffeeOrder_order`;
       await sql`INSERT INTO CoffeeOrder_status (time, status) VALUES (${today}, true);`;
-      console.log("make today's status");
+      console.log("make today's status and clear orders");
       const todayStatus = await sql`SELECT * FROM CoffeeOrder_status WHERE time = ${today};`;
       console.log('todayStatus : ', todayStatus.rows);
     }

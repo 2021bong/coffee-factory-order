@@ -21,7 +21,7 @@ export default function Home() {
     axios
       .get(ALL_URL)
       .then((data) => {
-        // setOrderData(Object.entries(data.data));
+        setOrderData(Object.entries(data.data));
       })
       .catch((err) => {
         console.error('error : ', err);

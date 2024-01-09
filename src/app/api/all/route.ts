@@ -1,5 +1,4 @@
-import { sql } from '@vercel/postgres';
-import dayjs from 'dayjs';
+import { db } from '@vercel/postgres';
 import { NextResponse } from 'next/server';
 
 type MenuType = {
@@ -7,11 +6,9 @@ type MenuType = {
 };
 
 export async function GET(request: Request) {
-  const today = dayjs(new Date()).format('YYYY-MM-DD');
-
+  const client = await db.connect();
   try {
-    const { rows } = await sql`SELECT * FROM CoffeeOrder_orders`;
-    console.log('data rows : ', rows); // todo SELECT * FROM이 정상작동하지 않음
+    const { rows } = await client.sql`SELECT * FROM CoffeeOrder_orders`;
     const serverData = rows.length ? rows : null;
     console.log(serverData);
     const data: MenuType = {};

@@ -7,7 +7,7 @@ export async function GET(request: Request) {
   try {
     const { rows } = await sql`SELECT * FROM CoffeeOrder_status WHERE time = ${today};`;
     if (!rows.length) {
-      await sql`DELETE FROM CoffeeOrder_order`;
+      await sql`DELETE FROM CoffeeOrder_orders`;
       await sql`INSERT INTO CoffeeOrder_status (time, status) VALUES (${today}, true);`;
       console.log("make today's status and clear orders");
       const todayStatus = await sql`SELECT * FROM CoffeeOrder_status WHERE time = ${today};`;

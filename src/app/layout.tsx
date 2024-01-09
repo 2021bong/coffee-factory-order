@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import './globals.css';
 import './reset.css';
 import NavBar from '@/components/NavBar';
@@ -37,6 +38,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang='ko'>
       <body>
+        <SpeedInsights />
         <ModalContext.Provider value={{ show, openModal, closeModal, orderableStatus, setDisableOrder }}>
           <NavBar />
           {loading ? (

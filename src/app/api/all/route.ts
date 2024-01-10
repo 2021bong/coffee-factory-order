@@ -5,7 +5,9 @@ type MenuType = {
   string?: [string[], string[]];
 };
 
-export async function GET(request: Request) {
+export const dynamic = 'force-dynamic';
+
+export default async function handler(request: Request) {
   const client = await db.connect();
   try {
     const { rows } = await client.sql`SELECT * FROM CoffeeOrder_orders`;

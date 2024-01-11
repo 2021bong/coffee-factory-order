@@ -29,6 +29,7 @@ _todo_
 
 - Add a light, less sweet options
 - order cancellation
+- styling
 
 ## Deployment
 

@@ -1,4 +1,4 @@
-import { db } from '@vercel/postgres';
+import { sql } from '@vercel/postgres';
 import { NextResponse } from 'next/server';
 
 type MenuType = {
@@ -8,11 +8,9 @@ type MenuType = {
 export const dynamic = 'force-dynamic';
 
 export async function GET(request: Request) {
-  const client = await db.connect();
   try {
-    const { rows } = await client.sql`SELECT * FROM CoffeeOrder_orders`;
+    const { rows } = await sql`SELECT * FROM CoffeeOrder_orders`;
     const serverData = rows.length ? rows : null;
-    console.log(serverData);
     const data: MenuType = {};
     serverData?.forEach((order) => {
       const { name, beverage_name, type } = order;

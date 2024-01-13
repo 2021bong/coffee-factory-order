@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import Head from 'next/head';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import './globals.css';
 import './reset.css';
@@ -38,12 +37,18 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
   return (
     <html lang='ko'>
-      <Head>
+      <head>
+        <title>커공주</title>
+        <meta property='og:title' content='커공주' />
+        <meta property='og:url' content='https://coffee-factory-order.vercel.app/' />
         <meta
           property='og:image'
           content='https://github.com/2021bong/coffee-factory-order/assets/49029756/c89aa253-7d2f-494a-a435-c56349df12d0'
         />
-      </Head>
+        <meta property='og:title' content='커피 공장 주문 받습니다.' />
+        <meta property='og:description' content='점심 시간 커피 주문을 편하게 하기 위한 커피 주문 취합 프로젝트' />
+        <meta property='og:type' content='website' />
+      </head>
       <body>
         <SpeedInsights />
         <ModalContext.Provider value={{ show, openModal, closeModal, orderableStatus, setDisableOrder }}>

@@ -11,7 +11,7 @@ export interface TimeType {
 
 export default function OrderStartBtn() {
   const { setDisableOrder } = useContext(ModalContext);
-  const MINS_PER_COUNT = 2;
+  const MINS_PER_COUNT = 10;
   const SECS_PER_COUNT = 60;
   const localStorage = window?.localStorage;
   const [timeData, setTimeData] = useState<TimeType>({

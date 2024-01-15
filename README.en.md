@@ -43,17 +43,28 @@ _todo_
 
 You can order coffee. For menus that are not in the choices, you can select etc and enter menu.
 
+<img width="530" alt="selecting menu" src="https://github.com/2021bong/coffee-factory-order/assets/49029756/b4874576-1283-44c9-b35f-7f83a6c59de8">
+<img width="530" alt="when you selecting etc" src="https://github.com/2021bong/coffee-factory-order/assets/49029756/e5766bb2-09bd-4f11-8414-800a35530c16">
+
 2. Time Limit
 
 You have to complete your order within 10 minutes of the start of order. After that, you will can't order.
+
+<img width="300" alt="time limit" src="https://github.com/2021bong/coffee-factory-order/assets/49029756/4b610c45-727e-482d-8e7a-ed61a8d3b0b2">
+<img width="300" alt="close down" src="https://github.com/2021bong/coffee-factory-order/assets/49029756/306d6b18-9ce1-46dd-9d6d-b5dca4b57349">
 
 3. Mode Change
 
 There are two modes: order mode, which is easy to type into the kiosk when ordering, and delivery mode, which checks who ordered it.
 
+<img width="300" alt="order mode" src="https://github.com/2021bong/coffee-factory-order/assets/49029756/fe257b31-92cf-441d-844a-bbf322d42017">
+<img width="300" alt="delivery mode" src="https://github.com/2021bong/coffee-factory-order/assets/49029756/041b4bb6-784f-4ae5-bd61-0fa0ec767e61">
+
 4. My Order
 
 You can check the details of your last order.
+
+<img width="300" alt="my order" src="https://github.com/2021bong/coffee-factory-order/assets/49029756/ef287920-7f19-470e-8e63-b7862b60d656">
 
 <br />
 

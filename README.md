@@ -43,17 +43,28 @@ _추가할 기능_
 
 커피를 주문할 수 있습니다. 선택에 없는 메뉴는 기타로 선택하면 입력하여 주문할 수 있습니다.
 
+<img width="530" alt="메뉴 선택" src="https://github.com/2021bong/coffee-factory-order/assets/49029756/b4874576-1283-44c9-b35f-7f83a6c59de8">
+<img width="530" alt="기타 선택 시" src="https://github.com/2021bong/coffee-factory-order/assets/49029756/e5766bb2-09bd-4f11-8414-800a35530c16">
+
 2. 주문 시간 제한
 
 주문 시작 후 10분 안에 주문을 완료해야합니다. 그 이후에는 주문이 불가합니다.
+
+<img width="300" alt="시간 제한" src="https://github.com/2021bong/coffee-factory-order/assets/49029756/4b610c45-727e-482d-8e7a-ed61a8d3b0b2">
+<img width="300" alt="주문 마감" src="https://github.com/2021bong/coffee-factory-order/assets/49029756/306d6b18-9ce1-46dd-9d6d-b5dca4b57349">
 
 3. 주문 & 배달 모드
 
 주문할 때 키오스크에 입력하기 편한 주문 모드, 누가 주문했는지 확인하는 배달 모드 두가지 모드가 있습니다.
 
+<img width="300" alt="주문 모드" src="https://github.com/2021bong/coffee-factory-order/assets/49029756/fe257b31-92cf-441d-844a-bbf322d42017">
+<img width="300" alt="배달 모드" src="https://github.com/2021bong/coffee-factory-order/assets/49029756/041b4bb6-784f-4ae5-bd61-0fa0ec767e61">
+
 4. 내 주문 내역
 
 내가 마지막으로 주문한 내역을 확인할 수 있습니다.
+
+<img width="300" alt="내 주문 내역" src="https://github.com/2021bong/coffee-factory-order/assets/49029756/ef287920-7f19-470e-8e63-b7862b60d656">
 
 <br />
 

@@ -2,6 +2,8 @@
 
 Coffee order project to make it easier to check order during lunchtime
 
+![Coffee Factory Order Thumbnail](https://velog.velcdn.com/images/2021bong/post/9db4d102-2bc1-48dd-8cd3-0401ba9fd26f/image.png)
+
 <br />
 
 ## Table of Contents

@@ -2,6 +2,8 @@
 
 점심 시간 커피 주문을 편하게 하기 위한 커피 주문 취합 프로젝트
 
+![커피 공장 주문 받습니다 썸네일](https://velog.velcdn.com/images/2021bong/post/9db4d102-2bc1-48dd-8cd3-0401ba9fd26f/image.png)
+
 <br />
 
 ## 목차

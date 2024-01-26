@@ -1,5 +1,6 @@
 import { OrderDataType } from '@/app/page';
 import styles from '@/components/styles/mode.module.css';
+import names from './names';
 
 export default function OrderModeList({ orderData }: { orderData: OrderDataType | undefined }) {
   const getTotal = (inIsOkay: boolean) => {
@@ -38,7 +39,7 @@ export default function OrderModeList({ orderData }: { orderData: OrderDataType 
         총 음료 개수 : <span className={styles.total_number}>{getTotal(false)}</span>
       </p>
       <p className={styles.total}>
-        주문자(괜찮습니다 포함) : <span className={styles.total_number}>{getTotal(true)}</span> / 15
+        주문자(괜찮습니다 포함) : <span className={styles.total_number}>{getTotal(true)}</span> / {names.length}
       </p>
     </>
   );

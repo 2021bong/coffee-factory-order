@@ -19,8 +19,15 @@ export default function OrderModeList({ orderData }: { orderData: OrderDataType 
         {orderData?.map(([beverName, beverType]) => {
           return (beverType[0].length || beverType[1].length) && beverName !== '괜찮습니다' ? (
             <li key={beverName + beverType[0] + beverType[1]} className={styles.beverage}>
-              <p className={styles.bever_name}>{beverName}</p> <p className={styles.ice}>아 : {beverType[0].length}</p>
-              <p className={styles.hot}>따 : {beverType[1].length}</p>
+              <p className={styles.bever_name}>{beverName}</p>
+              <div className={styles.type_box}>
+                <p className={styles.ice}>
+                  <span className={styles.type_deco}>아</span> : {beverType[0].length}
+                </p>
+                <p className={styles.hot}>
+                  <span className={styles.type_deco}>따</span> : {beverType[1].length}
+                </p>
+              </div>
             </li>
           ) : null;
         })}
@@ -35,12 +42,7 @@ export default function OrderModeList({ orderData }: { orderData: OrderDataType 
             ) : null;
           })}
       </ul>
-      <p className={styles.total}>
-        총 음료 개수 : <span className={styles.total_number}>{getTotal(false)}</span>
-      </p>
-      <p className={styles.total}>
-        주문자(괜찮습니다 포함) : <span className={styles.total_number}>{getTotal(true)}</span> / {names.length}
-      </p>
+      <p className={styles.total}>총 음료 개수 : {getTotal(false)} 잔</p>
     </>
   );
 }

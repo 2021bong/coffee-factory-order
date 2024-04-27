@@ -1,10 +1,24 @@
+.mode_desc {
+  max-width: fit-content;
+  margin-bottom: 20px;
+  padding: 15px;
+  background-color: var(--sky-blue);
+  border-radius: 15px;
+  color: var(--primary);
+}
+
+.mode_desc .emphasis {
+  font-weight: 700;
+  color: var(--blue);
+}
+
 .beverage {
   width: 100px;
   margin-bottom: 20px;
   padding: 20px 10px;
   border-radius: 10px;
   background-color: #e9e9e9;
-  font-size: 20px;
+  font-size: var(--middle);
   font-weight: 700;
   text-align: center;
 }
@@ -14,55 +28,40 @@
 }
 
 .ice {
-  color: blue;
+  color: var(--blue);
 }
 
 .hot {
-  color: red;
-}
-
-.total {
-  margin-bottom: 20px;
-  font-size: 20px;
-  font-weight: 700;
-}
-
-.total_number {
-  padding: 2px 5px;
-  background-color: yellow;
-}
-
-.mode_desc {
-  margin-bottom: 20px;
-  color: blue;
+  color: var(--red);
 }
 
 .mode_btn {
-  width: 100px;
+  width: fit-content;
+  height: fit-content;
   padding: 10px;
-  background-color: blue;
-  border-radius: 10px;
-  color: #fff;
-  font-size: 20px;
+  border-radius: 20px;
+  background-color: var(--primary);
+  color: var(--white);
+  font-size: var(--middle);
 }
 
 .mode_btn:active {
-  background-color: #e9e9e9;
-  color: #000;
+  background-color: var(--gray);
+  color: var(--primary);
 }
 
 .button {
   width: 100px;
   margin-bottom: 20px;
   padding: 10px;
-  background-color: red;
+  background-color: var(--red);
   border: 1px solid transparent;
   border-radius: 10px;
-  color: #fff;
-  font-size: 20px;
+  color: var(--white);
+  font-size: var(--middle);
 }
 
 .button:active {
-  background-color: #000;
-  color: #fff;
+  background-color: var(--primary);
+  color: var(--white);
 }

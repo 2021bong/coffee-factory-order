@@ -31,7 +31,9 @@ export default function Home() {
 
   return (
     <div className='container'>
-      <p className={styles.mode_desc}>{mode ? '현재 결제 모드입니다.' : '현재 배달 모드입니다.'}</p>
+      <p className={styles.mode_desc}>
+        현재 <span className={styles.emphasis}>{mode ? '결제 모드' : '배달 모드'}</span>입니다.
+      </p>
       {!orderableStatus ? <h1 className='title'>마감합니다.</h1> : <h1 className='title'>커피 공장 주문 받습니다.</h1>}
       {orderableStatus && (
         <button onClick={openModal} className={styles.button}>
@@ -39,10 +41,10 @@ export default function Home() {
         </button>
       )}
       {mode ? <OrderModeList orderData={orderData} /> : <DeliveryModeList orderData={orderData} />}
+      {show && <OrderModal />}
       <button className={styles.mode_btn} onClick={(e) => setMode((prev) => !prev)}>
         {mode ? '배달 모드' : '결제 모드'}
       </button>
-      {show && <OrderModal />}
     </div>
   );
 }

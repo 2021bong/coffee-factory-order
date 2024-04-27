@@ -1,12 +1,12 @@
 .content {
-  font-size: 22px;
+  font-size: var(--large);
   margin-bottom: 10px;
 }
 
 .caution {
   margin-bottom: 10px;
   color: red;
-  font-size: 16px;
+  font-size: var(--middle);
 }
 
 .button {
@@ -16,7 +16,7 @@
   background-color: black;
   border-radius: 10px;
   color: #fff;
-  font-size: 20px;
+  font-size: var(--middle);
 }
 
 .button:active {
@@ -31,7 +31,7 @@
   border: 1px solid transparent;
   border-radius: 10px;
   color: #fff;
-  font-size: 20px;
+  font-size: var(--middle);
   cursor: pointer;
 }
 

@@ -27,7 +27,7 @@ interface OrderDetailsType {
 const OrderDetails = ({ orderNames, mode }: OrderDetailsType) => {
   return orderNames.length ? (
     <p className={classNames({ [styles.ice]: mode === 'ice' }, { [styles.hot]: mode === 'hot' })}>
-      <span>{mode === 'ice' ? '아' : '따'}</span>
+      <span className={styles.type_block}>{mode === 'ice' ? '아' : '따'}</span>
       <br />
       {orderNames.map((name) => (
         <span key={name}>

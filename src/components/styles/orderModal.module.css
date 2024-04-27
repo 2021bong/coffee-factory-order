@@ -16,7 +16,7 @@
 }
 
 .form {
-  font-size: 20px;
+  font-size: var(--middle);
 }
 
 .input_box1,
@@ -31,23 +31,10 @@
 
 .input_box1 input,
 .input_box1 select {
-  font-size: 20px;
+  font-size: var(--middle);
 }
 
 .input_box2 legend {
   font-weight: 700;
   margin-bottom: 10px;
-}
-
-.button {
-  padding: 10px;
-  background-color: black;
-  border-radius: 10px;
-  color: #fff;
-  font-size: 20px;
-}
-
-.button:active {
-  background-color: #e9e9e9;
-  color: #000;
 }

@@ -36,7 +36,7 @@ export default function Home() {
       </p>
       {!orderableStatus ? <h1 className='title'>마감합니다.</h1> : <h1 className='title'>커피 공장 주문 받습니다.</h1>}
       {orderableStatus && (
-        <button onClick={openModal} className={styles.button}>
+        <button onClick={openModal} className='button'>
           주문 하기
         </button>
       )}

@@ -4,14 +4,17 @@
   right: 0;
   width: 100%;
   height: 100%;
-  background-color: #00000088;
+  background-color: var(--shadow);
 }
 
 .modal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 500px;
   margin-top: 30px;
   padding: 30px;
-  background-color: #fff;
+  background-color: var(--white);
   border-radius: 30px;
 }
 

@@ -46,11 +46,11 @@ export default function MyOrder() {
         <p className={styles.content}>저장된 주문 내역이 없습니다.</p>
       )}
       {orderableStatus ? (
-        <button className={styles.button} onClick={openModal}>
+        <button className='button' onClick={openModal}>
           {order ? '주문 다시 하기' : '주문 하기'}
         </button>
       ) : (
-        <button className={classNames(styles.button, styles.end)} disabled={true}>
+        <button className={classNames('button', styles.end)} disabled={true}>
           주문 마감
         </button>
       )}

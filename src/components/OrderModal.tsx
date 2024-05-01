@@ -97,7 +97,7 @@ export default function OrderModal() {
               <input
                 type='text'
                 disabled={selectedBever !== '기타'}
-                placeholder='메뉴 이름을 적어주세요.'
+                placeholder={selectedBever !== '기타' ? ' - ' : '메뉴 이름을 적어주세요.'}
                 value={etcBever}
                 onChange={(e) => setEtcBever(e.target.value)}
               />
@@ -120,10 +120,10 @@ export default function OrderModal() {
                 따뜻하게
               </label>
             </fieldset>
-            <button onClick={confirmOrder} className={styles.button} type='button' aria-label='complete'>
+            <button onClick={confirmOrder} className='button mr5' type='button' aria-label='complete'>
               주문 완료
             </button>
-            <button onClick={closeModal} className={styles.button} type='button' aria-label='close'>
+            <button onClick={closeModal} className='button' type='button' aria-label='close'>
               닫기
             </button>
           </form>

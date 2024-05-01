@@ -9,6 +9,8 @@
   --sky-blue: #acd6fc;
   --red: #ff4b2a;
 
+  --shadow: #00000088;
+
   --large: 24px;
   --middle: 18px;
   --small: 12px;
@@ -45,11 +47,31 @@
   border-radius: 10px;
 }
 
+.button {
+  width: 100px;
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: var(--primary);
+  border: 1px solid transparent;
+  border-radius: 10px;
+  color: var(--white);
+  font-size: var(--middle);
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: var(--secondary);
+}
+
+.button:active {
+  background-color: var(--gray);
+}
+
 .order_btn {
   width: 200px;
   margin-bottom: 20px;
   padding: 10px;
-  background-color: var(--primary);
+  background-color: var(--red);
   border: 1px solid transparent;
   border-radius: 10px;
   color: var(--white);
@@ -80,4 +102,27 @@
 
 .time_data span {
   font-weight: 700;
+}
+
+input {
+  padding: 2px;
+  border: none;
+  border-bottom: 1px solid var(--primary);
+  border-radius: 5px;
+  background-color: transparent;
+}
+
+input:disabled {
+  border: none;
+  background-color: var(--light-gray);
+}
+
+select {
+  border: none;
+  border-bottom: 1px solid var(--primary);
+  background-color: transparent;
+}
+
+.mr5 {
+  margin-right: 5px;
 }

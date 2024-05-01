@@ -49,19 +49,3 @@
   background-color: var(--gray);
   color: var(--primary);
 }
-
-.button {
-  width: 100px;
-  margin-bottom: 20px;
-  padding: 10px;
-  background-color: var(--red);
-  border: 1px solid transparent;
-  border-radius: 10px;
-  color: var(--white);
-  font-size: var(--middle);
-}
-
-.button:active {
-  background-color: var(--primary);
-  color: var(--white);
-}

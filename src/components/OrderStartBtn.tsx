@@ -98,7 +98,7 @@ export default function OrderStartBtn() {
       <p className={classNames('ordering', { last_min: minuets < 60000 })}>{`남은 시간 : ${makeShowText(minuets)}`}</p>
     </div>
   ) : (
-    <button className={'order_btn'} onClick={handleCountdown}>
+    <button className='order_btn' onClick={handleCountdown}>
       주문 시작
     </button>
   );
